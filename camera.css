@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+.main-visual {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+}
+img {
+  width: 90%;
+  height: 600px;
+  object-fit: cover;
+  margin: 30px;
+}
+header {
+  margin: 0 30px;
+  width:90%;
+  display: flex;
+}
+.logo {
+  font-size: 30px;
+  margin-left: 30px;
+  margin-right: 100px;
+}
+.nav-list {
+  display: flex;
+  line-height: 20px;
+}
+.nav-list-item {
+  padding: 20px;
+}
+
+main {
+  width: 70%;
+  margin: 0 auto;
+}
+
+#concept {
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+.image {
+  width: 400px;
+  height: 300px;
+}
+#concept .image {
+  background-image: url(img-camera/1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.text-box {
+  width: 400px;
+  height: 300px;
+  margin: 50px 50px;
+}
+.text {
+  padding-bottom: 20px;
+}
+
+#work {
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+#work .image {
+  background-image: url(img-camera/3.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+footer {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+}
+footer .logo {
+  font-size: 1em;
+}
+
+
+a:visited{
+  color: inherit;
+}
+
+
+@media screen and (max-width: 425px) {
+
+  .main-visual {
+    max-width: 100%;
+    margin: 0;
+  }
+  img {
+    width: 100%;
+    margin: 0;
+  }
+  header {
+    width: 95%;
+    margin: 5px auto;
+  }
+  .logo {
+    font-size: 32px;
+    margin-left: 5px;
+    margin-right: 20px;
+  }
+  .nav-list {
+    display: flex;
+    line-height: 20px;
+  }
+  .nav-list-item {
+    padding: 10px;
+  }
+
+  main {
+    width: 90%;
+  }
+  #concept {
+    display: block;
+  }
+  .image {
+    width: 350px;
+    height: 300px;
+  }
+
+  .text-box {
+    width: 300px;
+    height: 200px;
+    margin: 50px 10px;
+  }
+
+  #work {
+    flex-direction: column-reverse;
+  }
+
+  footer {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+  }
+  footer .logo {
+    font-size: 1em;
+  }
+}
