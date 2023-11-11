@@ -209,40 +209,64 @@
 
 # ==================
 
-def janken
-  hand = ["グー", "チョキ", "パー"]
+# def janken
+#   hand = ["グー", "チョキ", "パー"]
 
-  puts "じゃんけんスタート！"
-  puts "グー：[0], チョキ[1], パー[2]"
-  print "じゃんけん..."
-  your_hand = gets.to_i
+#   puts "じゃんけんスタート！"
+#   puts "グー：[0], チョキ[1], パー[2]"
+#   print "じゃんけん..."
+#   your_hand = gets.to_i
   
-  if your_hand > 2
-    puts "無効な値です"
-    return true
-  end
+#   if your_hand > 2
+#     puts "無効な値です"
+#     return true
+#   end
 
-  computer_hand = rand(3)
-  puts "あなたは、#{hand[your_hand]}"
-  puts "コンピューターは、#{hand[computer_hand]}です。"
+#   computer_hand = rand(3)
+#   puts "あなたは、#{hand[your_hand]}"
+#   puts "コンピューターは、#{hand[computer_hand]}です。"
 
-  if your_hand == computer_hand
-    puts "あいこです"
-    return true
-  elsif (your_hand == 0 && computer_hand == 1) || (your_hand == 1 && computer_hand == 2) || (your_hand == 2 && computer_hand == 0)
-    puts "あなたの勝ちです"
-    return false
-  else
-    puts "あなたの負けです"
-    return true
-  end
-end
+#   if your_hand == computer_hand
+#     puts "あいこです"
+#     return true
+#   elsif (your_hand == 0 && computer_hand == 1) || (your_hand == 1 && computer_hand == 2) || (your_hand == 2 && computer_hand == 0)
+#     puts "あなたの勝ちです"
+#     return false
+#   else
+#     puts "あなたの負けです"
+#     return true
+#   end
+# end
 
-next_game = true
+# next_game = true
 
-while next_game
-  puts "再挑戦"
-  next_game = janken
-end
+# while next_game
+#   puts "再挑戦"
+#   next_game = janken
+# end
 
 # ===============
+
+# === 数当てゲーム ===
+
+number = rand(1..100)
+
+puts "数当てゲーム、スタート！"
+puts "１〜１００までの数を当ててください。"
+
+while true
+  puts "あなたの予想する数字を入力してください。"
+  your_num = gets.to_i
+  
+  if your_num == number
+    puts "正解です！！お見事！"
+    puts "数字は、#{number} でした！"
+    break
+  elsif your_num > number
+    puts "あなたが選んだ数字よりも小さい数です。"
+  else
+    puts "あたなが選んだ数字よりも大きい数です。"
+  end
+end
+
+# =========================
