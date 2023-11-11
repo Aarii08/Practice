@@ -131,28 +131,28 @@
 # puts fizz_buzz(input)
 
 
-class Car
-  def run(distance)
-    puts "車で#{distance}キロ走ります。"
-  end
-end
+# class Car
+#   def run(distance)
+#     puts "車で#{distance}キロ走ります。"
+#   end
+# end
 
-class Bus < Car
-  def run(distance)
-    super
-    puts "30人を乗せて、走っています。"
-  end
-end
+# class Bus < Car
+#   def run(distance)
+#     super
+#     puts "30人を乗せて、走っています。"
+#   end
+# end
 
-class Truck < Car
-  def run(distance)
-    super
-    puts "大きな荷物を乗せて走ります。"
-  end
-end
+# class Truck < Car
+#   def run(distance)
+#     super
+#     puts "大きな荷物を乗せて走ります。"
+#   end
+# end
 
-truck = Truck.new
-truck.run(5)
+# truck = Truck.new
+# truck.run(5)
 
 # bus = Bus.new
 # bus.run(5)
@@ -160,3 +160,89 @@ truck.run(5)
 # car = Car.new
 # car.run(5)
 
+
+# === 石取りゲーム ===
+# puts "石取りゲームスタート"
+# stones = 20
+# players = ["あなた", "コンピューター"]
+
+# while stones > 0
+#   players.each do |player|
+#     puts "残りの石：#{stones}個"
+#     if player == "あなた"
+#       puts "１〜３個の石を取ってください。"
+#       take = gets.to_i
+#     else 
+#       take = rand(1..3)
+#       puts "コンピューターは#{take}個の石を取りました。"
+#     end
+    
+#     stones -= take
+    
+#     if stones <= 0
+#       puts "#{player}の勝ち！"
+#       break
+#     end
+#   end
+# end
+
+# ====================
+# === じゃんけんゲーム ===
+
+# hand = { 0 => "グー", 1 => "チョキ", 2 => "パー" }
+
+# puts "じゃんけんゲームスタート！"
+# puts "0:グー, 1:チョキ, 2:パー"
+# print "あなたの手を選んで数字で入力してください"
+# player_hand = gets.to_i
+
+# computer_hand = rand(3)
+# puts "コンピューターの手は、#{hand[computer_hand]}"
+
+# if player_hand == computer_hand
+#   puts "あいこ"
+# elsif (player_hand - computer_hand + 3) % 3 == 2
+#   puts "あなたの勝ちです"
+# else
+#   puts "あなたの負けです"
+# end
+
+# ==================
+
+def janken
+  hand = ["グー", "チョキ", "パー"]
+
+  puts "じゃんけんスタート！"
+  puts "グー：[0], チョキ[1], パー[2]"
+  print "じゃんけん..."
+  your_hand = gets.to_i
+  
+  if your_hand > 2
+    puts "無効な値です"
+    return true
+  end
+
+  computer_hand = rand(3)
+  puts "あなたは、#{hand[your_hand]}"
+  puts "コンピューターは、#{hand[computer_hand]}です。"
+
+  if your_hand == computer_hand
+    puts "あいこです"
+    return true
+  elsif (your_hand == 0 && computer_hand == 1) || (your_hand == 1 && computer_hand == 2) || (your_hand == 2 && computer_hand == 0)
+    puts "あなたの勝ちです"
+    return false
+  else
+    puts "あなたの負けです"
+    return true
+  end
+end
+
+next_game = true
+
+while next_game
+  puts "再挑戦"
+  next_game = janken
+end
+
+# ===============
