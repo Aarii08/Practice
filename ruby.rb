@@ -249,24 +249,86 @@
 
 # === 数当てゲーム ===
 
-number = rand(1..100)
+# number = rand(1..100)
 
-puts "数当てゲーム、スタート！"
-puts "１〜１００までの数を当ててください。"
+# puts "数当てゲーム、スタート！"
+# puts "１〜１００までの数を当ててください。"
 
-while true
-  puts "あなたの予想する数字を入力してください。"
-  your_num = gets.to_i
+# while true
+#   puts "あなたの予想する数字を入力してください。"
+#   your_num = gets.to_i
   
-  if your_num == number
-    puts "正解です！！お見事！"
-    puts "数字は、#{number} でした！"
-    break
-  elsif your_num > number
-    puts "あなたが選んだ数字よりも小さい数です。"
+#   if your_num == number
+#     puts "正解です！！お見事！"
+#     puts "数字は、#{number} でした！"
+#     break
+#   elsif your_num > number
+#     puts "あなたが選んだ数字よりも小さい数です。"
+#   else
+#     puts "あたなが選んだ数字よりも大きい数です。"
+#   end
+# end
+
+# =========================
+
+def start_games
+  puts "あなたは森の中にいます。北に進みますか？南に進みますか？"
+  choice = gets.chomp
+  
+  if choice == "北"
+    puts "あなたは北へ進み、・・・深い穴に落ちてしまいました。ゲームオーバーです。"
+    return false
+  elsif choice == "南"
+    puts "あなたは南へ進み、・・・分かれ道があります！"
+    return true
   else
-    puts "あたなが選んだ数字よりも大きい数です。"
+    puts "理解できない選択肢です。ゲームをやり直してください。"
+    return false
   end
 end
 
-# =========================
+
+def next_games
+  puts "次はどちらへ向かいますか？"
+  puts "東？西？"
+  choice2 = gets.chomp
+  
+  if choice2 == "東"
+    puts "宝箱発見！中にはお宝が！！！"
+    return true
+  elsif choice2 == "西"
+    puts "大きなモンスターが、、、倒されました・・・。ゲームオーバーです。"
+    return false
+  else
+    puts "操作不能！！森の中へと消えていってしまった・・・。"
+    return false
+  end
+end
+
+def third_games
+  puts "お宝の中には、勇者の剣がありました！"
+  puts "また冒険に出ますか？それとも家に帰りますか？"
+  puts "冒険 or 家"
+  choice3 = gets.chomp
+  
+  if choice3 == "冒険"
+    puts "もう一度冒険へ向かいます。"
+    return true
+  elsif choice3 == "家"
+    puts "家に帰ります"
+    return false
+  else
+    puts "疲れて眠ってしまった"
+    return false
+  end
+  
+end
+
+while
+  if start_games == true
+    if next_games == true
+        third_games
+    end
+  end
+end
+
