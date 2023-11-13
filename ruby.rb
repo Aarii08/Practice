@@ -118,7 +118,7 @@
 #     "Buzz"
 #   elsif number % 3 == 0
 #     "Fizz"
-#   else 
+#   else
 #     number.to_s
 #   end
 # end
@@ -172,13 +172,13 @@
 #     if player == "あなた"
 #       puts "１〜３個の石を取ってください。"
 #       take = gets.to_i
-#     else 
+#     else
 #       take = rand(1..3)
 #       puts "コンピューターは#{take}個の石を取りました。"
 #     end
-    
+
 #     stones -= take
-    
+
 #     if stones <= 0
 #       puts "#{player}の勝ち！"
 #       break
@@ -216,7 +216,7 @@
 #   puts "グー：[0], チョキ[1], パー[2]"
 #   print "じゃんけん..."
 #   your_hand = gets.to_i
-  
+
 #   if your_hand > 2
 #     puts "無効な値です"
 #     return true
@@ -257,7 +257,7 @@
 # while true
 #   puts "あなたの予想する数字を入力してください。"
 #   your_num = gets.to_i
-  
+
 #   if your_num == number
 #     puts "正解です！！お見事！"
 #     puts "数字は、#{number} でした！"
@@ -271,64 +271,100 @@
 
 # =========================
 
-def start_games
-  puts "あなたは森の中にいます。北に進みますか？南に進みますか？"
-  choice = gets.chomp
-  
-  if choice == "北"
-    puts "あなたは北へ進み、・・・深い穴に落ちてしまいました。ゲームオーバーです。"
-    return false
-  elsif choice == "南"
-    puts "あなたは南へ進み、・・・分かれ道があります！"
-    return true
+# def start_games
+#   puts "あなたは森の中にいます。北に進みますか？南に進みますか？"
+#   choice = gets.chomp
+
+#   if choice == "北"
+#     puts "あなたは北へ進み、・・・深い穴に落ちてしまいました。ゲームオーバーです。"
+#     return false
+#   elsif choice == "南"
+#     puts "あなたは南へ進み、・・・分かれ道があります！"
+#     return true
+#   else
+#     puts "理解できない選択肢です。ゲームをやり直してください。"
+#     return false
+#   end
+# end
+
+
+# def next_games
+#   puts "次はどちらへ向かいますか？"
+#   puts "東？西？"
+#   choice2 = gets.chomp
+
+#   if choice2 == "東"
+#     puts "宝箱発見！中にはお宝が！！！"
+#     return true
+#   elsif choice2 == "西"
+#     puts "大きなモンスターが、、、倒されました・・・。ゲームオーバーです。"
+#     return false
+#   else
+#     puts "操作不能！！森の中へと消えていってしまった・・・。"
+#     return false
+#   end
+# end
+
+# def third_games
+#   puts "お宝の中には、勇者の剣がありました！"
+#   puts "また冒険に出ますか？それとも家に帰りますか？"
+#   puts "冒険 or 家"
+#   choice3 = gets.chomp
+
+#   if choice3 == "冒険"
+#     puts "もう一度冒険へ向かいます。"
+#     return true
+#   elsif choice3 == "家"
+#     puts "家に帰ります"
+#     return false
+#   else
+#     puts "疲れて眠ってしまった"
+#     return false
+#   end
+
+# end
+
+# while
+#   if start_games == true
+#     if next_games == true
+#         third_games
+#     end
+#   end
+# end
+
+# ================================
+
+# === SNOWMAN ===
+
+# 1から100000を順番に文字列として取り出す。
+# 文字の間に- を入れる。
+# 8 がつくところには、「SNOWMAN」と出力する。
+# 一列30文字になるように取り出す。
+# 3887列目は、どんな文字列になるか。
+
+result = ''
+(1..100000).each do |number|
+  str_number = number.to_s
+  if str_number.include?('8')
+    result += 'S-N-O-W-M-A-N'
   else
-    puts "理解できない選択肢です。ゲームをやり直してください。"
-    return false
+    result += str_number
   end
+  result += '-'
 end
 
+# 30文字ずつの列に分割して出力
+# result.chars.each_slice(31) { |slice| puts slice.join('') }
 
-def next_games
-  puts "次はどちらへ向かいますか？"
-  puts "東？西？"
-  choice2 = gets.chomp
-  
-  if choice2 == "東"
-    puts "宝箱発見！中にはお宝が！！！"
-    return true
-  elsif choice2 == "西"
-    puts "大きなモンスターが、、、倒されました・・・。ゲームオーバーです。"
-    return false
-  else
-    puts "操作不能！！森の中へと消えていってしまった・・・。"
-    return false
-  end
+# 38887番目の列を出力
+sequence = result.chars.each_slice(30).map { |slice| slice.join('') }
+column_3887 = sequence[3887]
+
+# エラーチェックしてから出力
+if column_3887
+  puts column_3887
+else
+  puts "列が見つかりません"
 end
 
-def third_games
-  puts "お宝の中には、勇者の剣がありました！"
-  puts "また冒険に出ますか？それとも家に帰りますか？"
-  puts "冒険 or 家"
-  choice3 = gets.chomp
-  
-  if choice3 == "冒険"
-    puts "もう一度冒険へ向かいます。"
-    return true
-  elsif choice3 == "家"
-    puts "家に帰ります"
-    return false
-  else
-    puts "疲れて眠ってしまった"
-    return false
-  end
-  
-end
-
-while
-  if start_games == true
-    if next_games == true
-        third_games
-    end
-  end
-end
-
+# =================
